@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 const (
-  _ = iota
+  _ = iota // assigned to blank value
   KB = 1 << (iota * 10)
   MB = 1 << (iota * 10)
 )
