@@ -19,14 +19,24 @@ func main() {
 
   scanner.Split(bufio.ScanWords)
 
-  buckets := make([]int, 200)
+  buckets := make([][]string, 200)
 
-  for scanner.Scan() {
-    n := HashBucket(scanner.Text(), 12)
-    buckets[n]++
+  for i := 0; i < 12; i++ {
+    buckets = append(buckets, []string{})
   }
 
-  fmt.Println(buckets)
+  for scanner.Scan() {
+    word := scanner.Text()
+    n := HashBucket(word, 12)
+    buckets[n] = append(buckets[n], word)
+  }
+
+  // print length of each bucket
+  for i := 0; i < 12; i++ {
+    fmt.Println(i, " - ", len(buckets[i]))
+  }
+
+  fmt.Println(buckets[1])
 }
 
 func HashBucket(word string, buckets int) int {
