@@ -18,11 +18,11 @@ func main() {
   fmt.Println(studyGroup)
 
   s := []string{"Zeno","John","Al","Jenny"}
-  sort.Strings(s)
+  sort.Sort(sort.StringSlice(s))
   fmt.Println(s)
 
   n := []int{43534, 434, 65464, 938, 3}
-  sort.Ints(n)
+  sort.Sort(sort.IntSlice(n))
   fmt.Println(n)
 }
 
